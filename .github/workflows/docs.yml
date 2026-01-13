@@ -19,8 +19,11 @@ jobs:
         with:
           go-version: '1.25'
 
+      - name: Install tfplugindocs
+        run: go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@latest
+
       - name: Generate documentation
-        run: go run github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs generate
+        run: tfplugindocs generate
 
       - name: Check for differences
         run: |
