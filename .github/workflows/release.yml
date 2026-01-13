@@ -11,6 +11,7 @@ permissions:
 
 jobs:
   goreleaser:
+    environment: Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -29,7 +30,6 @@ jobs:
         with:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
-          print_gpg_stdout: true
 
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v6
