@@ -3,7 +3,7 @@ module github.com/fe80/terraform-provider-repoflow
 go 1.25.5
 
 require (
-	github.com/fe80/go-repoflow v0.0.0-20260112090616-4709ed29f7ce
+	github.com/fe80/go-repoflow v0.0.1
 	github.com/hashicorp/terraform-plugin-framework v1.17.0
 	github.com/hashicorp/terraform-plugin-framework-validators v0.19.0
 	github.com/hashicorp/terraform-plugin-log v0.10.0
