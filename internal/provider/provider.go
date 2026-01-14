@@ -87,9 +87,9 @@ func (p *RepoflowProvider) Configure(ctx context.Context, req provider.Configure
 		resp.Diagnostics.AddError("Configuration Error", "api_key must be set in provider block or REPOFLOW_API_KEY env var")
 	}
 
-	rfClient := repoflow.NewClient(baseURL, apiKey)
-	resp.DataSourceData = rfClient
-	resp.ResourceData = rfClient
+	client := repoflow.NewClient(baseURL, apiKey)
+	resp.DataSourceData = client
+	resp.ResourceData = client
 }
 
 func (p *RepoflowProvider) Resources(ctx context.Context) []func() resource.Resource {
@@ -103,7 +103,9 @@ func (p *RepoflowProvider) EphemeralResources(ctx context.Context) []func() ephe
 }
 
 func (p *RepoflowProvider) DataSources(ctx context.Context) []func() datasource.DataSource {
-	return []func() datasource.DataSource{}
+	return []func() datasource.DataSource{
+		NewWorkspaceDataSource, NewRepositoryDataSource,
+	}
 }
 
 func (p *RepoflowProvider) Functions(ctx context.Context) []func() function.Function {
