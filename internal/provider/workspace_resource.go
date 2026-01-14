@@ -1,6 +1,3 @@
-// Copyright IBM Corp. 2021, 2025
-// SPDX-License-Identifier: MPL-2.0
-
 package provider
 
 import (
@@ -45,7 +42,7 @@ func (r *WorkspaceResource) Metadata(ctx context.Context, req resource.MetadataR
 func (r *WorkspaceResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
 		// This description is used by the documentation generator and the language server.
-		MarkdownDescription: "Example resource",
+		MarkdownDescription: "Workspace resource",
 
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
@@ -108,10 +105,8 @@ func (r *WorkspaceResource) Create(ctx context.Context, req resource.CreateReque
 		return
 	}
 
-	data = WorkspaceResourceModel{
-		Id:   types.StringValue(ws.Id),
-		Name: types.StringValue(ws.Name),
-	}
+	data.Id = types.StringValue(ws.Id)
+	data.Name = types.StringValue(ws.Name)
 
 	// Write logs using the tflog package
 	// Documentation: https://terraform.io/plugin/log
