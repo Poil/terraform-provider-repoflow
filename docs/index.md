@@ -4,7 +4,7 @@
 
 page_title: "Repoflow Terraform Provider"
 description: |-
-  This is a terraform provider use to manager [RepoFlow](https://www.repoflow.io/) with stable Api
+  This is a terraform provider use to manage [RepoFlow](https://www.repoflow.io/) with stable Api
 ---
 
 # Repoflow Terraform Provider
